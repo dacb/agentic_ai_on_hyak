@@ -30,7 +30,7 @@ apptainer exec --nv --bind /gscratch/ vllm-openai_latest.sif \
     --port 8000 \
     --dtype auto \
     --enable-auto-tool-choice \
-    --tool-call-parser \
+    --tool-call-parser hermes \
     --trust-remote-code \
     --download-dir $HF_HOME/hub \
     &> logs/vllm_interactive.log &
