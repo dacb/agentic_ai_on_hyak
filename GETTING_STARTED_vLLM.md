@@ -71,7 +71,10 @@ cat << EOF > ~/.config/opencode/opencode.json
       },
       "models": {
         "Qwen/Qwen3-14B": {
-          "name": "qwen3:14b"
+          "name": "qwen3:14b",
+          "options": {
+             "max_tokens": 27000
+          }
         }
       }
     }
