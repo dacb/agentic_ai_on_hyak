@@ -11,8 +11,12 @@ salloc -A escience -p gpu-a40 -N 1 -c 8 --mem=80G --time=4:00:00 --gpus=1
 
 ## Pull the vLLM container image into `vllm-openai_latest.sif`
 ```
+mkdir /gscratch/escience/$USER/vllm-serve
+cd /gscratch/escience/$USER/vllm-serve
 export APPTAINER_CACHEDIR=/gscratch/escience/$USER/vllm-serve/tmp
 apptainer pull docker://vllm/vllm-openai:latest
+mkdir logs
+mkdir .huggingface
 ```
 
 ## Launch vLLM in background
