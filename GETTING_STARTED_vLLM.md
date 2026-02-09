@@ -19,12 +19,12 @@ mkdir logs
 mkdir .huggingface
 ```
 
-## Launch vLLM in background
+## Launch vLLM in background being sure to mount gscratch
 ```
 cd /gscratch/escience/$USER/vllm-serve
 export HF_HOME=/gscratch/escience/$USER/vllm-serve/.huggingface
 
-apptainer exec --nv vllm-openai_latest.sif \
+apptainer exec --nv --bind /gscratch/ vllm-openai_latest.sif \
   vllm serve Qwen/Qwen3-14B \
     --host 0.0.0.0 \
     --port 8000 \
@@ -57,11 +57,8 @@ rm -rf /gscratch/escience/dacb/$USER/vllm-serve
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-## Start the container with a shell, note the nv is necessary to use the GPU
+## start opencode
 ```
-apptainer shell --nv --bind /gscratch/ nvidia.sif
-# add opencode and uv to PATH
-PATH=$PATH:~/.opencode/bin
 export OPENAI_BASE_URL=http://localhost:8000/v1
 export OPENAI_API_KEY=dummy # A dummy key is fine for local use
 opencode --provider openai --model Qwen/Qwen3-14B
