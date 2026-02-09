@@ -87,5 +87,5 @@ EOF
 ```
 export OPENAI_BASE_URL=http://localhost:8000/v1
 export OPENAI_API_KEY=dummy # A dummy key is fine for local use
-opencode --model vLLM/qwen3:14b
+opencode --model vLLM/Qwen/Qwen3-14B
 ```
