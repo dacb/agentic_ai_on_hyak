@@ -62,3 +62,12 @@ PATH=$PATH:~/.opencode/bin
 # launch opencode with ollama config
 ollama launch opencode --config
 ```
+
+## To use opencode, start the container, set the path, and launch it
+Make sure you already have `ollama serve running`
+```
+apptainer shell --nv --bind /gscratch/ ollama.sif
+# OLLAMA_CONTEXT_LENGTH=64000 ollama serve&
+PATH=$PATH:~/.opencode/bin
+ollama launch opencode
+```
