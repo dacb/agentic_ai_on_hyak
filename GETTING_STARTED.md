@@ -6,7 +6,7 @@ Enter your password and TFA.
 
 ## Get an interactive session with a GPU node up
 ```
-salloc -A escience -p gpu-a40 -N 1 -c 8 --mem=40G --time=4:00:00 --gpus=1
+salloc -A escience -p gpu-a40 -N 1 -c 8 --mem=80G --time=4:00:00 --gpus=1
 ```
 
 ## Install opencode
