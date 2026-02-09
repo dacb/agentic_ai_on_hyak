@@ -58,4 +58,7 @@ curl -fsSL https://opencode.ai/install | bash
 apptainer shell --nv --bind /gscratch/ nvidia.sif
 # add opencode and uv to PATH
 PATH=$PATH:~/.opencode/bin
+export OPENAI_BASE_URL=http://localhost:8000/v1
+export OPENAI_API_KEY=dummy # A dummy key is fine for local use
+opencode --provider openai --model Qwen/Qwen3-14B
 ```
