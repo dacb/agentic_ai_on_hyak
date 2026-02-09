@@ -52,8 +52,6 @@ exit
 rm -rf /gscratch/escience/dacb/$USER/vllm-serve
 ```
 
---
-
 ## Install opencode
 ```
 curl -fsSL https://opencode.ai/install | bash
@@ -61,7 +59,24 @@ curl -fsSL https://opencode.ai/install | bash
 
 ## Setup opencode's config
 ```
-cat << EOF
+cat << EOF > ~/.config/opencode/opencode.json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "vLLM": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "vLLM (local)",
+      "options": {
+        "baseURL": "http://localhost:8000/v1"
+      },
+      "models": {
+        "Qwen/Qwen3-14B": {
+          "name": "qwen3:14b"
+        }
+      }
+    }
+  },
+}
 EOF
 ```
 
