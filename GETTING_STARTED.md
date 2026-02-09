@@ -25,7 +25,7 @@ From: nvcr.io/nvidia/nvhpc:25.11-devel-cuda_multi-rockylinux8
     # Ollama install
     curl -OL https://github.com/ollama/ollama/releases/download/v0.15.6/ollama-linux-amd64.tar.zst
     zstd-1.5.7/zstd -d ollama-linux-amd64.tar.zst
-    tar -C /usr -xzf ollama-linux-amd64.tar
+    tar -C /usr -xf ollama-linux-amd64.tar
 EOF
 apptainer build ollama.sif ollama.def
 ```
