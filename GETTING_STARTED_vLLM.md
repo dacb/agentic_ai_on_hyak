@@ -29,6 +29,8 @@ apptainer exec --nv --bind /gscratch/ vllm-openai_latest.sif \
     --host 0.0.0.0 \
     --port 8000 \
     --dtype auto \
+    --enable-auto-tool-choice \
+    --tool-call-parser \
     --trust-remote-code \
     --download-dir $HF_HOME/hub \
     &> logs/vllm_interactive.log &
@@ -57,9 +59,15 @@ rm -rf /gscratch/escience/dacb/$USER/vllm-serve
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-## start opencode
+## Setup opencode's config
+```
+cat << EOF
+EOF
+```
+
+## Start opencode
 ```
 export OPENAI_BASE_URL=http://localhost:8000/v1
 export OPENAI_API_KEY=dummy # A dummy key is fine for local use
-opencode --provider openai --model Qwen/Qwen3-14B
+opencode --model vLLM/qwen3:14b
 ```
