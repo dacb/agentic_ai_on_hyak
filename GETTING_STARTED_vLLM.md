@@ -93,10 +93,10 @@ cat << EOF > ~/.config/opencode/opencode.json
           "name": "gpt-oss-20b",
           "options": {
           }
-        },
+        }
       }
     }
-  },
+  }
 }
 EOF
 ```
