@@ -25,7 +25,7 @@ cd ollama
 # make a directory to hold the downloaded models
 mkdir models
 # create a container definition file
-cat << EOF
+cat << EOF > ollama.def
 Bootstrap: docker
 From: nvcr.io/nvidia/nvhpc:25.11-devel-cuda_multi-rockylinux8
 
